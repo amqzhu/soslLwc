@@ -1,0 +1,55 @@
+<template>
+    <div class="slds-m-around_medium">
+        <h1 class="slds-text-heading_small">Search for users</h1>
+        <p class="slds-text-body_regular">Click enter or the button to run search</p>
+    </div>
+
+    <div class="slds-m-around_medium" onkeyup={handleKeyUp}>
+        <lightning-input type="search" class="slds-m-bottom_small" label="Search" value={searchKey}></lightning-input>
+        <template if:true={contacts.data}>
+            <p>NAME: {contacts.data.Name}</p>
+        </template>
+        <template if:true={contacts.error}>
+            <p>has error</p>
+        </template>
+    </div>
+    <p if:true={searchKey}>
+        Searched for {searchKey}!
+    </p>
+
+    <div class="slds-m-around_medium" onkeyup={handleKeyUpSOSL}>
+        <lightning-input type="search" class="slds-m-bottom_small" label="Search SOSL" value={searchKeySOSL}></lightning-input>
+        <template if:true={userSOSL.data}>
+            <p>NAME IN SOSL: {userSOSL.data.Name}</p>
+        </template>
+        <template if:true={userSOSL.error}>
+            <p>has error in SOSL search</p>
+        </template>
+    </div>
+    <p if:true={searchKeySOSL}>
+        Searched for {searchKeySOSL} using SOSL YAY!
+    </p>
+
+    <div class="slds-m-around_medium" onkeyup={handleKeyUpCVSOSL}>
+        <lightning-input type="search" class="slds-m-bottom_small" label="Search ContentVersion SOSL" value={cvSOSL}>
+        </lightning-input>
+        <template if:true={cvs.data}>
+            <template for:each={cvs.data} for:item="cv">
+                <p key={cv.Id}>ContentVersion: {cv.Id}</p>
+            </template>
+        </template>
+        <template if:true={cvs.error}>
+            <p>has error in CV SOSL search</p>
+        </template>
+    </div>
+    <p if:true={cvSOSL}>
+        Searched ContentVersion for {cvSOSL} using SOSL!
+    </p>
+
+    <div>
+        <template if:true={data}>
+            <lightning-datatable key-field="id" data={data} columns={columns}>
+            </lightning-datatable>
+        </template>
+    </div>
+</template>
