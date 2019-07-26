@@ -52,4 +52,11 @@
             </lightning-datatable>
         </template>
     </div>
+
+    <div>
+        <template if:true={data}>
+            <lightning-datatable key-field="id" data={data} columns={columnsAction} onrowaction={handleRowAction}>
+            </lightning-datatable>
+        </template>
+    </div>
 </template>
