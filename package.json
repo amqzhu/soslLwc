@@ -1,0 +1,24 @@
+{
+  "name": "sosllwc",
+  "version": "1.0.0",
+  "description": "sample desc here",
+  "main": "index.js",
+  "scripts": {
+    "test:unit": "lwc-jest",
+    "test:unit:watch": "lwc-jest --watch",
+    "test:unit:debug": "lwc-jest --debug"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amqzhu/soslLwc.git"
+  },
+  "author": "Aubrianna Zhu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amqzhu/soslLwc/issues"
+  },
+  "homepage": "https://github.com/amqzhu/soslLwc#readme",
+  "devDependencies": {
+    "@salesforce/lwc-jest": "^0.5.1"
+  }
+}

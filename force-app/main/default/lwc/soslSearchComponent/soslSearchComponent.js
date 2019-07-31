@@ -1,8 +1,8 @@
 import { LightningElement, track, wire } from 'lwc';
 import getUsersList from '@salesforce/apex/soslSearch.getUsersList';
 import getUserByName from '@salesforce/apex/soslSearch.getUserByName';
-import getUserByNameSOSL from '@salesforce/apex/soslSearch.getUserByNameSOSL';
-import getContentVersions from '@salesforce/apex/soslSearch.getContentVersions';
+// import getUserByNameSOSL from '@salesforce/apex/soslSearch.getUserByNameSOSL';
+// import getContentVersions from '@salesforce/apex/soslSearch.getContentVersions';
 
 const columns = [
     { label: 'CV ID', fieldName: 'Id' },
@@ -36,16 +36,16 @@ export default class LightningExampleInputSearch extends LightningElement {
 
     @wire(getUsersList) users;
     @wire(getUserByName, { searchKey: '$searchKey' }) contacts;
-    @wire(getUserByNameSOSL, { searchKeySOSL: '$searchKeySOSL' }) userSOSL;
-    @wire(getContentVersions, { cvSOSL: '$cvSOSL' }) cvs;
-    @wire(getContentVersions, { cvSOSL: '$cvSOSL' }) cvsTable({ error, data }) {
-        if (data) {
-            this.data = data;
-            console.log('data', this.data) //eslint-disable-line
-        } else if (error) {
-            this.error = error;
-        }
-    }
+    // @wire(getUserByNameSOSL, { searchKeySOSL: '$searchKeySOSL' }) userSOSL;
+    // @wire(getContentVersions, { cvSOSL: '$cvSOSL' }) cvs;
+    // @wire(getContentVersions, { cvSOSL: '$cvSOSL' }) cvsTable({ error, data }) {
+    //     if (data) {
+    //         this.data = data;
+    //         console.log('data', this.data) //eslint-disable-line
+    //     } else if (error) {
+    //         this.error = error;
+    //     }
+    // }
 
     handleKeyUp(evt) {
         const isEnterKey = evt.keyCode === 13;

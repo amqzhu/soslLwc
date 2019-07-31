@@ -4,20 +4,24 @@
         <p class="slds-text-body_regular">Click enter or the button to run search</p>
     </div>
 
-    <div class="slds-m-around_medium" onkeyup={handleKeyUp}>
-        <lightning-input type="search" class="slds-m-bottom_small" label="Search" value={searchKey}></lightning-input>
+    <template for:each={users.data} for:item="user">
+        <p class="individual-user" key={user.Id}>Name: {user.Name}</p>
+    </template>
+
+    <div class="slds-m-around_medium">
+        <lightning-input type="search" class="slds-m-bottom_small" label="Search" value={searchKey} onkeyup={handleKeyUp}></lightning-input>
         <template if:true={contacts.data}>
-            <p>NAME: {contacts.data.Name}</p>
+            <p class="searched-user">NAME: {contacts.data.Name}</p>
         </template>
         <template if:true={contacts.error}>
-            <p>has error</p>
+            <p class="searched-error">has error</p>
         </template>
     </div>
     <p if:true={searchKey}>
         Searched for {searchKey}!
     </p>
 
-    <div class="slds-m-around_medium" onkeyup={handleKeyUpSOSL}>
+    <!-- <div class="slds-m-around_medium" onkeyup={handleKeyUpSOSL}>
         <lightning-input type="search" class="slds-m-bottom_small" label="Search SOSL" value={searchKeySOSL}></lightning-input>
         <template if:true={userSOSL.data}>
             <p>NAME IN SOSL: {userSOSL.data.Name}</p>
@@ -58,5 +62,5 @@
             <lightning-datatable key-field="id" data={data} columns={columnsAction} onrowaction={handleRowAction}>
             </lightning-datatable>
         </template>
-    </div>
+    </div> -->
 </template>
